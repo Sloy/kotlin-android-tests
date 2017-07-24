@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: "kotlin-allopen"
 
 android {
   compileSdkVersion 25
@@ -10,8 +11,8 @@ android {
     targetSdkVersion 25
     versionCode 1
     versionName "1.0"
-//    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    testInstrumentationRunner 'com.github.tmurakami.dexopener.DexOpenerAndroidJUnitRunner'
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//    testInstrumentationRunner 'com.github.tmurakami.dexopener.DexOpenerAndroidJUnitRunner'
   }
   buildTypes {
     release {
@@ -19,6 +20,10 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+}
+
+allOpen {
+  annotation("com.sloydev.kotlinandroidtests.Open")
 }
 
 dependencies {
@@ -33,7 +38,7 @@ dependencies {
 
 //  androidTestCompile "org.mockito:mockito-core:${mockitoVersion}"
   androidTestCompile "org.mockito:mockito-android:${mockitoVersion}"
-  androidTestCompile 'com.github.tmurakami:dexopener:0.10.3'
+//  androidTestCompile 'com.github.tmurakami:dexopener:0.10.3'
 
   androidTestCompile 'com.android.support:appcompat-v7:25.+'
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -44,3 +49,4 @@ repositories {
   mavenCentral()
   maven { url 'https://jitpack.io' }
 }
+
