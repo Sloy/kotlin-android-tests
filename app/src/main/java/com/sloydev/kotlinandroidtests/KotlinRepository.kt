@@ -1,6 +1,6 @@
 package com.sloydev.kotlinandroidtests
 
-class UserRepository {
+class KotlinRepository {
 
     fun getUsers(): List<String> {
         TODO()

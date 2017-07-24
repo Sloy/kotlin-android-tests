@@ -10,7 +10,7 @@ import static java.util.Arrays.asList;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
-public class UnitTest {
+public class InstrumentationTest {
 
   @Mock
   KotlinRepository repository;
@@ -21,7 +21,7 @@ public class UnitTest {
   }
 
   @Test
-  public void unit_test_works() throws Exception {
+  public void instrumentation_test_works() throws Exception {
     given(repository.getUsers()).willReturn(asList("a", "b"));
 
     List<String> users = repository.getUsers();
